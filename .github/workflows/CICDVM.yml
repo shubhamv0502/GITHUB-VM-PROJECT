@@ -34,4 +34,4 @@ jobs:
 
       - name: Upload repository to VM
         run: |
-           gcloud compute scp index.html instance-1:/home/shubhamv0502/testrepo --zone=us-central1-a
+           gcloud compute scp script1.sh instance-1:/home/shubhamv0502/testrepo --zone=us-central1-a
