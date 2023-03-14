@@ -1,0 +1,37 @@
+name: Upload to VM
+
+on:
+  push:
+    branches: main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+           contents: 'read'
+           id-token: 'write'
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+         fetch-depth: 0
+
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+                credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
+                service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+                
+#       - id: 'compute-ssh'
+#         uses: 'google-github-actions/ssh-compute@v0'
+#         with:
+#          instance_name: instance-1
+#          zone: us-central1-a
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      - name: Upload repository to VM
+        run: |
+           gcloud compute scp index.html instance-1:/home/shubhamv0502/testrepo --zone=us-central1-a
