@@ -19,8 +19,8 @@ steps:
   entrypoint: 'bash' 
   args: ['gcloud', 'compute', 'scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
-logsBucket: '$_BUCKET_LOGS'
-serviceAccount: 'projects/$_PROJECT_ID/$_SERVICE_ACCOUNT'
+logsBucket: 'gs://logs_bucket_sv'
+serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
 options:
   logging: GCS_ONLY
 
