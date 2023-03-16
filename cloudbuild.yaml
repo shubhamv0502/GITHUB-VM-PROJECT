@@ -9,7 +9,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash' 
 #   args: ['gcloud', 'compute', 'scp', 'file1.txt', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
-  args: ['gcloud', 'compute', 'scp', '/home/user/Shellscript', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+  args: ['gcloud', 'compute', 'scp', 'shubhamv0502/Shellscript/*', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
 logsBucket: 'gs://svproject/cloudbuild_data/'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
