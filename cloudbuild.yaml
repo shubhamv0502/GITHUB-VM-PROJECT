@@ -1,1 +1,19 @@
+steps:
+  
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+  entrypoint: 'gcloud'
+  args: ['gsutil', 'cp', 'index.html', 'gs://svproject/cloudbuild_data/']
 
+   args:
+     - "run"
+     - "deploy"
+     - "my-service"
+     - "--image=gcr.io/groovy-aquifer-380616/my-image"
+     - "--platform=managed"      
+     - "--region=us-central1-a"
+     - "--min-instances=1"
+
+logsBucket: 'gs://svproject/cloudbuild_data/'
+serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
+options:
+  logging: GCS_ONLY
