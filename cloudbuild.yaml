@@ -17,7 +17,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash' 
-  args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
+  args: ['gcloud', 'compute', 'scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
 logsBucket: '$_BUCKET_LOGS'
 serviceAccount: 'projects/$_PROJECT_ID/$_SERVICE_ACCOUNT'
