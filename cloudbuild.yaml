@@ -2,7 +2,7 @@ steps:
   
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
   entrypoint: 'gcloud'
-  args: ['run', 'compute', '--image=gcr.io/groovy-aquifer-380616/my-image', 'scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+  args: ['run', 'gcloud compute scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
 #compute scp script1.sh basic-vm:/home/shubhamv0205/pipelinedir --zone=us-central1-a
 
