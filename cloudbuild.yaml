@@ -7,7 +7,7 @@ steps:
 # #compute scp script1.sh basic-vm:/home/shubhamv0205/pipelinedir --zone=us-central1-a
 
 - name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash' 
+  entrypoint: 'gcloud' 
 #   TO JUST COPY ONE FILE COMMAND IS THIS 
 #   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
 #    TO COPY WHOLE REPO COMMAND IS THIS
