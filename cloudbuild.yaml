@@ -1,13 +1,4 @@
-# steps:
-  
-# # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-# #   entrypoint: 'gcloud'
-# #   args: ['run', 'gcloud compute scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
-# # #compute scp script1.sh basic-vm:/home/shubhamv0205/pipelinedir --zone=us-central1-a
-
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   entrypoint: 'bash'
 # #   TO JUST COPY ONE FILE COMMAND IS THIS 
 # #   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
 # #    TO COPY WHOLE REPO COMMAND IS THIS
@@ -18,11 +9,10 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash' 
 #   args: ['gcloud', 'compute', 'scp', 'file1.txt', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
-  args: ['gcloud', 'compute', 'scp', ' ', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
   args: ['gcloud', 'compute', 'scp', 'script2.sh', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
-logsBucket: 'gs://logs_bucket_sv'
-serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
+logsBucket: '$_BUCKET_LOGS'
+serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
 options:
   logging: GCS_ONLY
 
