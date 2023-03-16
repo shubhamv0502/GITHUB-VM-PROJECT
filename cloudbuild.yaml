@@ -8,7 +8,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash' 
-#   args: ['gcloud', 'compute', 'scp', 'file1.txt', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+#   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
   args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', '$_VM_PATH', '--zone=$_ZONE']
 
 logsBucket: '$_BUCKET_LOGS'
