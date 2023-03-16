@@ -1,19 +1,30 @@
-steps:
+# steps:
   
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-#   entrypoint: 'gcloud'
-#   args: ['run', 'gcloud compute scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+# # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+# #   entrypoint: 'gcloud'
+# #   args: ['run', 'gcloud compute scp', 'file1.txt', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
-# #compute scp script1.sh basic-vm:/home/shubhamv0205/pipelinedir --zone=us-central1-a
+# # #compute scp script1.sh basic-vm:/home/shubhamv0205/pipelinedir --zone=us-central1-a
 
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   entrypoint: 'bash'
+# #   TO JUST COPY ONE FILE COMMAND IS THIS 
+# #   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
+# #    TO COPY WHOLE REPO COMMAND IS THIS
+#   args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+
+
+steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-#   TO JUST COPY ONE FILE COMMAND IS THIS 
-#   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
-#    TO COPY WHOLE REPO COMMAND IS THIS
-  args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
+  entrypoint: 'bash' 
+  args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
 
 logsBucket: '$_BUCKET_LOGS'
-serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
+serviceAccount: 'projects/$_PROJECT_ID/$_SERVICE_ACCOUNT'
 options:
   logging: GCS_ONLY
+
+# logsBucket: '$_BUCKET_LOGS'
+# serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
+# options:
+#   logging: GCS_ONLY
