@@ -11,7 +11,7 @@ steps:
 #   TO JUST COPY ONE FILE COMMAND IS THIS 
 #   args: ['gcloud', 'compute', 'scp', 'file1.txt', '$_VM_PATH', '--zone=$_ZONE']
 #    TO COPY WHOLE REPO COMMAND IS THIS
-  args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', '$_VM_PATH', '--zone=$_ZONE']
+  args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', 'basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
 
 logsBucket: '$_BUCKET_LOGS'
 serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
