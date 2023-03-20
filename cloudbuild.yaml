@@ -5,7 +5,7 @@ steps:
  # #    TO COPY WHOLE REPO COMMAND IS THIS
  
 #   args: ['gcloud', 'compute', 'scp', '--recurse', 'testrepo', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
-  args: ['gcloud', 'compute', 'scp', '--recurse', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=$_ZONE']
+  args: ['gcloud', 'compute', 'scp', '--recurse', 'foo-folder', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=$_ZONE']
   
   # #   TO JUST COPY ONE FILE COMMAND IS THIS 
 #   args: ['gcloud', 'compute', 'scp', 'script2.sh', 'shubhamv0205@basic-vm:/home/shubhamv0205/pipelinedir', '--zone=us-central1-a']
