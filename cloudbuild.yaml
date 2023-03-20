@@ -1,4 +1,10 @@
 steps:
+- name: 'gcr.io/cloud-builders/git'
+  args:
+  - 'clone'
+  - 'https://github.com/shubhamv0502/GITHUB-VM-PROJECT'
+  - '/workspace/GITHUB-VM-PROJECT'
+  
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash' 
   
